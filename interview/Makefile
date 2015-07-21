@@ -3,7 +3,7 @@ LDFLAGS := -ldl -pthread
 
 DEPS := $(wildcard *.h)
 
-all: %.cpp $(DEPS)
+all: *.cpp $(DEPS)
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 fileserver:  $(FS_LIB)
