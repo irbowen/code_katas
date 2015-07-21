@@ -1,21 +1,25 @@
 CXXFLAGS := -Wall -g -std=c++11 
-LDFLAGS := -ldl -pthread
 
 DEPS := $(wildcard *.h)
 
-all: *.cpp $(DEPS)
+QUESTIONS_SRC :=$(wildcard *.cpp)
+QJESTIONS := $(patsubst %.cpp,%.out,$(QUESTIONS_SRC))
+
+all:  questions
+
+%.o: %.cpp $(DEPS)
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 fileserver:  $(FS_LIB)
-	$(CXX) $(CXXFLAGS) -o $@ $^ $(FS_OBJS) $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(FS_OBJS) 
 
-tests: $(TESTS)
+questions: $(QJESTIONS)
 
 test%.o: test%.cpp
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
-test%.out: test%.o 
-	$(CXX) $(CXXFLAGS) -o $@ $^ $(TEST_OBS) $(LDFLAGS)
+%.out: %.o 
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
 clean:
-	rm -f *~ *.out *.o 
+	rm -f *~ *.out *.o fileserver
