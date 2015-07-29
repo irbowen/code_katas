@@ -90,7 +90,7 @@ auto timeSize(int size, function<void(vector<double>&)> sort_type) {
 }
 
 int main() {
-  for (int i = 2; i < 480000000; i = i * 2 ) {
+  for (int i = 2; i < 480000000; i = i + 100 ) {
     cout << "Size: " << i << " ";
     //cout << "\tBubble: ";
     //double bubble_sort_time = timeSize(i, bubble_sort_vector);
@@ -101,9 +101,9 @@ int main() {
      //cout << "\t\tInsertion STL: ";
     //double insertion_stl_time = timeSize(i, insertion_sort);
     //cout << insertion_stl_time;
-    //cout << "\t\tInsertion Isaac: ";
-    //double insertion_isaac_time = timeSize(i, insertion_sort_vector);
-    //cout << insertion_isaac_time;
+    cout << "\t\tInsertion Isaac: ";
+    double insertion_isaac_time = timeSize(i, insertion_sort_vector);
+    cout << insertion_isaac_time;
     //cout << "\t\tInsertion Internet: ";
     //double insertion_internet_time = timeSize(i, insertion_sort_internet);
     //cout << insertion_internet_time;
@@ -113,9 +113,9 @@ int main() {
     cout << "\t\tMergeSort():";
     double merge_sort_time = timeSize(i, mergeSort);
     cout << merge_sort_time;
-    cout << "\t\tMergeSor2t():";
-    double merge_sort_time2 = timeSize(i, mergeSort2);
-    cout << merge_sort_time2;
+    //cout << "\t\tMergeSor2t():";
+    //double merge_sort_time2 = timeSize(i, mergeSort2);
+    //cout << merge_sort_time2;
     cout <<  endl;
   }
 

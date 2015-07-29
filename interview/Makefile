@@ -1,19 +1,23 @@
-CXXFLAGS := -Wall -Wextra -ansi -pedantic -pthread -std=c++11 -O3
+CXXFLAGS := -Wall -Wextra -ansi -pedantic -pthread -std=c++11
 
 DEPS := $(wildcard *.h)
 
 QUESTIONS_SRC :=$(wildcard *.cpp)
-QJESTIONS := $(patsubst %.cpp,%.out,$(QUESTIONS_SRC))
+QUESTIONS := $(patsubst %.cpp,%.out,$(QUESTIONS_SRC))
 
 all:  questions
+
+fast: CXXFLAGS += -O3
+fast: questions
+
+debug: CXXFLAGS += -g
+debug: questions
+
 
 %.o: %.cpp $(DEPS)
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
-fileserver:  $(FS_LIB)
-	$(CXX) $(CXXFLAGS) -o $@ $^ $(FS_OBJS)
-
-questions: $(QJESTIONS)
+questions: $(QUESTIONS)
 
 test%.o: test%.cpp
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
@@ -22,4 +26,4 @@ test%.o: test%.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 clean:
-	rm -f *~ *.out *.o fileserver
+	rm -f *~ *.out *.o
