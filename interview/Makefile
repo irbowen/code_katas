@@ -1,4 +1,4 @@
-CXXFLAGS := -Wall -g -std=c++11 
+CXXFLAGS := -Wall -Wextra -ansi -pedantic -std=c++11 -O3 
 
 DEPS := $(wildcard *.h)
 
