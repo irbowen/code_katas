@@ -1,4 +1,4 @@
-CXXFLAGS := -Wall -Wextra -ansi -pedantic -std=c++11 -O3 
+CXXFLAGS := -Wall -Wextra -ansi -pedantic -pthread -std=c++11 -O3
 
 DEPS := $(wildcard *.h)
 
@@ -11,14 +11,14 @@ all:  questions
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 fileserver:  $(FS_LIB)
-	$(CXX) $(CXXFLAGS) -o $@ $^ $(FS_OBJS) 
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(FS_OBJS)
 
 questions: $(QJESTIONS)
 
 test%.o: test%.cpp
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
-%.out: %.o 
+%.out: %.o
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 clean:

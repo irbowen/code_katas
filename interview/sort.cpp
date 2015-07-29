@@ -113,6 +113,9 @@ int main() {
     cout << "\t\tMergeSort():";
     double merge_sort_time = timeSize(i, mergeSort);
     cout << merge_sort_time;
+    cout << "\t\tMergeSor2t():";
+    double merge_sort_time2 = timeSize(i, mergeSort2);
+    cout << merge_sort_time2;
     cout <<  endl;
   }
 
