@@ -8,7 +8,7 @@ void fast_small_sort(std::vector<double>& v) {
   bool swaps = true;
   while (swaps) {
     swaps = false;
-    for (auto j = 0; j < v.size()-1; j++) {
+    for (size_t j = 0; j < v.size()-1; j++) {
       if (v.at(j) < v.at(j+1)) {
         std::swap(v.at(j), v.at(j+1));
         swaps = true;

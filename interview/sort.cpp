@@ -8,7 +8,6 @@
 
 using namespace std;
 
-
 template <typename T>
 void print_vector(vector<T>& v) {
   for (auto x : v) {
@@ -18,10 +17,10 @@ void print_vector(vector<T>& v) {
 }
 
 void selection_sort_vector(vector<double>& v) {
-  for (auto i = 0; i < v.size(); i++) {
+  for (size_t i = 0; i < v.size(); i++) {
     auto min_value = v.at(i);
     auto min_index = i;
-    for (auto j = i+1; j < v.size(); j++) {
+    for (size_t j = i+1; j < v.size(); j++) {
       if (v.at(j) < min_value) {
         min_value = v.at(j);
         min_index = j;
@@ -35,7 +34,7 @@ void bubble_sort_vector(vector<double>& v) {
   bool swaps = true;
   while (swaps) {
     swaps = false;
-    for (auto j = 0; j < v.size()-1; j++) {
+    for (size_t j = 0; j < v.size()-1; j++) {
       if (v.at(j) < v.at(j+1)) {
         swap(v.at(j), v.at(j+1));
         swaps = true;
@@ -46,7 +45,7 @@ void bubble_sort_vector(vector<double>& v) {
 
 void insertion_sort_internet(vector<double>& v){
   int j, temp;
-  for (int i = i; i < v.size(); i++){
+  for (size_t i = 0; i < v.size(); i++){
     j = i;
     while (j > 0 && v[j] < v[j-1]){
       temp = v[j];
@@ -58,7 +57,7 @@ void insertion_sort_internet(vector<double>& v){
 }
 
 void insertion_sort_vector(vector<double>& v) {
-    for (auto i = 0; i < v.size(); i++) {
+    for (size_t i = 0; i < v.size(); i++) {
       auto j = i;
       while (j > 0 && v[j] < v[j-1]) {
         swap(v[j], v[j-1]);
