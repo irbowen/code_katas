@@ -1,4 +1,4 @@
-CXXFLAGS := -Wall -Wextra -ansi -pedantic -pthread -std=c++11
+CXXFLAGS := -Wall -Wextra -ansi -pedantic -pthread -std=c++11 -mtune=native
 
 DEPS := $(wildcard *.h)
 
