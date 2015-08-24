@@ -17,7 +17,7 @@ int singleNumber(vector<int>& nums) {
 }
 
 int main() {
-	vector<int> data {2, 2, 1, 1, 3};
+	vector<int> data {2, 2, 1, 1, 3, 3, 4, 5, 4, 6, 7, 7};
 	cout << singleNumber(data) << endl;
 	return 0;
 }
