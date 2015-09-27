@@ -12,6 +12,11 @@ void maxStockProfit(std::vector<double> v) {
   std::cout << "Min value is " << min_value << " Max profit is " << max_profit << std::endl;
 }
 
-int main void() {
-  std::vector<double>prices = {4, 1, 2, 3, 4, 5, 2, 0, 2, 4, 8}
+int main() {
+  std::vector<double>prices = {4, 1, 2, 3, 4, 5, 2, 0, 2, 4, 8};
+  for (auto& thing : prices) {
+    std::cout << thing << " ";
+  }
+  std::cout << std::endl;
+  maxStockProfit(prices);
 }
